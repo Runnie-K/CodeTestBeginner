@@ -20,9 +20,8 @@ public class UpdateMemberView extends View{
 		Scanner scann = new Scanner(System.in);
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		
-		System.out.print("이름 : ");
 		dataMap.put("name", scann.nextLine());
-		System.out.print("전화번호 : ");
+		
 		dataMap.put("phone", scann.nextLine());
 		
 		return dataMap;
