@@ -1,18 +1,18 @@
-package com.java.views.food;
+package com.java.views.restaurant;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import com.java.dto.food.FoodVO;
+import com.java.dto.restaurant.RestaurantVO;
 import com.java.views.View;
 
 
-public class FoodMainView extends View{
+public class RestaurantMainView extends View{
 	
 	{
-		String menu = "------------------------식자재 등록 ----------------------\n";
+		String menu = "------------------------매장 등록 ----------------------\n";
 		setMenu(menu);
 	}
 
@@ -20,14 +20,12 @@ public class FoodMainView extends View{
 	public Map<String, Object> view(Map<String, Object> param) {
 		System.out.println(getMenu());
 		
-		System.out.println("=====================최근 등록된 식자재 ==================== ");
-		System.out.println("식자재코드\t식자재명\t원산지\t알러지유무\t식자재구분\t보관방법\t단위");
-		List<FoodVO> foodList = (List<FoodVO>)param.get("foodList");
-		if(foodList != null) for (int i=0; i<foodList.size();i++) {
-			FoodVO food = foodList.get(i);
-			System.out.println(food.getFcode()+"\t"+food.getFname()+"\t"+food.getForigin()+"\t"
-						+food.getFallergy()+"\t"+food.getFcategory()+"\t"+food.getFmethod()+"\t"
-						+food.getFunit()+"\t");
+		System.out.println("=====================최근 등록된 매장 ==================== ");
+		System.out.println("매장코드\t매장명\t매장연락처");
+		List<RestaurantVO> restaurantList = (List<RestaurantVO>)param.get("restaurantList");
+		if(restaurantList != null) for (int i=0; i<restaurantList.size();i++) {
+			RestaurantVO restaurant = restaurantList.get(i);
+			System.out.println(restaurant.getRcode()+"\t"+restaurant.getRname()+"\t"+restaurant.getRphone()+"\t");
 		}
 
 		System.out.println();
@@ -44,13 +42,13 @@ public class FoodMainView extends View{
 		boolean flag = true;
 		switch (menu) {
 		case 1:
-			message = "식자재정보를 등록합니다.";
+			message = "매장정보를 등록합니다.";
 			break;
 		case 2:
-			message = "식자재 정보를 수정합니다.";
+			message = "매장정보를 수정합니다.";
 			break;
 		case 3:
-			message = "식자재 리스트를 업데이트합니다.";
+			message = "매장 리스트를 업데이트합니다.";
 			break;
 		case 4:
 			message = "메인페이지로 돌아갑니다.";
