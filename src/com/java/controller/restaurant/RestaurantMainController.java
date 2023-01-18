@@ -63,7 +63,6 @@ public class RestaurantMainController extends Controller{
 					break;
 				case 4:
 					//메인
-					flag=false;
 					break;
 				}
 				

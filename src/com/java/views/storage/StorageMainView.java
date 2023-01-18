@@ -6,17 +6,20 @@ import java.util.Scanner;
 
 import com.java.views.View;
 
-public class StorageMainView extends View {
+public class StorageMainView extends View{
 
 	{
-		String menu = "***********************************************\n" + " [1] 창고상세조회   [2] 창고 정보 수정    [3] 뒤로가기 ";
-
+		String menu = "***********************************************\n"
+					+ " [1] 창고상세조회   [2] 창고 정보 수정    [3] 뒤로가기 ";
+		
 		setMenu(menu);
 	}
-
+	
 	@Override
 	public Map<String, Object> view(Map<String, Object> param) {
-
+		
+		
+		
 		System.out.println(getMenu());
 
 		Scanner scann = new Scanner(System.in);
@@ -24,7 +27,7 @@ public class StorageMainView extends View {
 		scann.nextLine();
 
 		Map<String, Object> dataMap = new HashMap<String, Object>();
-
+		
 		dataMap.put("menu", menu);
 		boolean flag = true;
 		String message = "";
@@ -42,12 +45,14 @@ public class StorageMainView extends View {
 		}
 		dataMap.put("flag", flag);
 		dataMap.put("menu", menu);
-
+		
 		System.out.println(message + " 엔터키를 치세요.");
 		scann.nextLine();
 
 		return dataMap;
-
+		
 	}
 
+	
+	
 }

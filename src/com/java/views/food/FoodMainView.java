@@ -32,7 +32,7 @@ public class FoodMainView extends View{
 
 		System.out.println();
 		System.out.println("-------------------- 메뉴를 입력하세요. --------------------");
-		System.out.println("      [1]등록    [2]수정    [3]새로고침    [4]메이페이지");
+		System.out.println("      [1]등록    [2]수정    [3]이전 화면");
 		Scanner scann = new Scanner(System.in);
 		
 		Map<String, Object> dataMap = new HashMap<String, Object>();
@@ -50,10 +50,8 @@ public class FoodMainView extends View{
 			message = "식자재 정보를 수정합니다.";
 			break;
 		case 3:
-			message = "식자재 리스트를 업데이트합니다.";
-			break;
-		case 4:
-			message = "메인페이지로 돌아갑니다.";
+			message = "이전화면으로 돌아갑니다.";
+			flag = false;
 			break;
 		}
 		

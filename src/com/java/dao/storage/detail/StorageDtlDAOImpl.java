@@ -44,7 +44,7 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 	}
 	
 	@Override
-	public List<StorageDtlVO> selectStorageDtlByCri(Criteria cri) throws SQLException {
+	public List<StorageDtlVO> selectStorageDtlByCri(Criteria cri,String s_num) throws SQLException {
 		List<StorageDtlVO> storageDtlList = null;
 		Connection conn = null;
 		Statement stmt = null;
@@ -56,21 +56,20 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 			stmt = conn.createStatement();
 			
 			String sql = "select s.*,f.f_name from storage_dtl s, food f"
-					    +" where f.f_code = s.f_code and";
+					    +" where f.f_code = s.f_code and s.s_num='"+s_num+"' and";
 			
 			switch(cri.getSearchType()) {
 			case "n" :
-				sql+=" f.f_name like '%' ||'"+cri.getKeyword()+"'||'%'";
+				sql+=" f.f_name like '%"+cri.getKeyword()+"%'";
 				break;
 			case "i" :
-				sql+=" where sd_num like '%' ||'"+cri.getKeyword()+"'||'%'";
+				sql+=" s.sd_num like '%' ||'"+cri.getKeyword()+"'||'%'";
 				break;
 			}
 			
 			rs = stmt.executeQuery(sql);
 			
 			storageDtlList = toStorageDtlList(rs);
-			
 			return storageDtlList;
 			
 			

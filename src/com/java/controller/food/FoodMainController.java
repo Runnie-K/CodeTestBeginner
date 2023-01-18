@@ -56,12 +56,6 @@ public class FoodMainController extends Controller {
 					detailController.execute(null);
 					break;
 				case 3:
-					// 새로고침
-					Session session = Session.getSession();
-					session.setAttribute("registFood", null);
-					flag = false;
-					break;
-				case 4:
 					// 메인
 					break;
 				}
