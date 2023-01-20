@@ -30,7 +30,7 @@ public class RestaurantMainView extends View{
 
 		System.out.println();
 		System.out.println("-------------------- 메뉴를 입력하세요. --------------------");
-		System.out.println("      [1]등록    [2]수정    [3]새로고침    [4]이전화면");
+		System.out.println("      [1]등록    [2]수정    [3]조회    [4]이전화면");
 		Scanner scann = new Scanner(System.in);
 		
 		Map<String, Object> dataMap = new HashMap<String, Object>();
@@ -48,7 +48,7 @@ public class RestaurantMainView extends View{
 			message = "매장정보를 수정합니다.";
 			break;
 		case 3:
-			message = "매장 리스트를 업데이트합니다.";
+			message = "매장 정보를 조회합니다.";
 			break;
 		case 4:
 			message = "이전화면으로 돌아갑니다.";

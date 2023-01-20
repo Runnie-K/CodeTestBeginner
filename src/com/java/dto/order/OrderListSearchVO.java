@@ -73,8 +73,7 @@ public class OrderListSearchVO {
 
 	@Override
 	public String toString() {
-		return 	"OrderVO [주문일자:" + Odate+"]" +" [주문코드:"+ Ocode +"]"+" [식자재명:"+Fname+"]"+" [수량:"+Oqty+"]"+" [도매업체명:"+Wname+"]"
-	+" [창고번호:"+Snum+"]\n";
+		return 	Odate+"\t"+Ocode+"\t\t"+Fname+"\t\t"+Oqty+"\t"+Wname+"\t\t"+Snum+"\n";
 	}
 	
 	

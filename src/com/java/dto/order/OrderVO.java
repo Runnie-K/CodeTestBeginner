@@ -48,8 +48,7 @@ public class OrderVO {
 	}
 	@Override
 	public String toString() {
-		return "OrderrVO [Ocode=" + Ocode + ", Fcode=" + Fcode + ", Snum=" + Snum + ", Odate=" + Odate + ", Oqty="
-				+ Oqty + "]";
+		return  Ocode+"\t\t"+Fcode+"\t\t"+Snum+"\t\t"+Odate+"\t"+Oqty+"\n";
 	}
 	
 	

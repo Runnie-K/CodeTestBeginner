@@ -10,7 +10,7 @@ import com.java.views.View;
 
 public class OrderModifyView extends View {
 	{
-		String menu = "**************주문서 수정************";
+		String menu = "=========================주문서 수정=========================";
 		setMenu(menu);
 	}
 	Scanner sc = new Scanner(System.in);
@@ -28,32 +28,46 @@ public class OrderModifyView extends View {
 				System.out.println(order);
 			}
 
-		System.out.print("수정하실 주문서의 입고 코드를 입력하세요 : \n");
-		dataMap.put("Ocode", sc.nextLine());
-		System.out.println("[F]식자재 코드 [Q]수량  [S]창고 번호 ");
+		System.out.println("=======================================");
+		System.out.println("    수정하실 주문서의 주문번호를 입력하세요      ");
+		System.out.println("=======================================");
+		System.out.print  ("        주문번호:");
+		dataMap.put("Ocode", sc.nextLine().toUpperCase());
+		System.out.println("=======================================");
+		System.out.println("   [F]식자재 코드   [Q]수량  [S]창고 번호 ");
+		System.out.println("=======================================");
+		System.out.print  ("      입력:");
 		String menu;
 		menu = sc.nextLine().toUpperCase();
 		switch (menu) {
 		case "F":
-			System.out.print("입력:");
-			dataMap.put("Fcode", sc.nextLine());
+			System.out.println("=======================================");
+			System.out.print(       "입력:");
+			dataMap.put("Fcode", sc.nextLine().toUpperCase());
 			dataMap.put("menu", menu);
 
 			break;
 		case "Q":
-			System.out.print("입력:");
+			System.out.println("=======================================");
+			System.out.print(       "입력:");
 			dataMap.put("Oqty", sc.nextInt());
 			sc.nextLine();
 			dataMap.put("menu", menu);
 			break;
 		case "S":
-			System.out.print("입력:");
-			dataMap.put("Snum", sc.nextLine());
+			System.out.println("=======================================");
+			System.out.print(       "입력:");
+			dataMap.put("Snum", sc.nextLine().toUpperCase());
 			dataMap.put("menu", menu);
 			break;
 		}
-		System.out.println("수정되었습니다");
-		System.out.println("[1]추가수정 [2]이전화면");
+		System.out.println("=======================================");
+		System.out.println("               수정되었습니다              ");
+		System.out.println("=======================================");
+		System.out.println("=======================================");
+		System.out.println("          [1]추가수정 [2]이전화면");
+		System.out.println("=======================================");
+		System.out.print ("       입력:");
 		int m = sc.nextInt();
 		sc.nextLine();
 		if (m == 1) {

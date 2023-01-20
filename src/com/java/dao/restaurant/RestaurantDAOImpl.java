@@ -33,10 +33,10 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 			switch (cri.getSearchType()) {
 			
 			case "c":
-				sql += " where rcode like '%'||'"+cri.getKeyword()+"'||'%'";
+				sql += " where r_code like '%'||'"+cri.getKeyword()+"'||'%'";
 				break;
 			case "n":
-				sql += " where rcode like '%'||'"+cri.getKeyword()+"'||'%'";
+				sql += " where r_name like '%'||'"+cri.getKeyword()+"'||'%'";
 				break;
 			}
 			

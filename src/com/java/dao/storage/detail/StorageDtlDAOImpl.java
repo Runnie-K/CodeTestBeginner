@@ -117,8 +117,8 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 		try {
 			conn = dataSource.getConnection();
 			String sql = "insert into"
-						+" storage_dtl(sd_num,s_num,f_code,sd_qty,sd_standard,sd_section,sd_date)"
-					    +" values(?,?,?,?,?,?,?)";
+						+" storage_dtl(sd_num,s_num,f_code,sd_qty,sd_standard,sd_section)"
+					    +" values(?,?,?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, storagedtl.getSd_num());
 			pstmt.setString(2, storagedtl.getS_num());
@@ -126,7 +126,7 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 			pstmt.setInt(4, storagedtl.getSd_qty());
 			pstmt.setInt(5, storagedtl.getSd_standard());
 			pstmt.setString(6, storagedtl.getSd_section());
-			pstmt.setString(7, storagedtl.getSd_date());
+			//pstmt.setString(7, storagedtl.getSd_date());
 			
 			pstmt.executeUpdate();
 			

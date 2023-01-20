@@ -25,7 +25,8 @@ public class OrderListSearchView extends View {
 
 		int menu = 1;
 		try {
-//			List<OrderListSearchVO> orderlist = orderservice.getOrderList(cri);
+			System.out.println("[주문일자]\t\t[주문번호]\t\t[식자재명]\t\t[수량]\t[도매업체]\t[창고번호]");
+			List<OrderListSearchVO> orderlist = orderservice.getOrderList(cri);
 			List<OrderListSearchVO> orderList = (List<OrderListSearchVO>) param.get("orderList");
 			if (orderList != null)
 				for (int i = 0; i < orderList.size(); i++) {
@@ -68,7 +69,7 @@ public class OrderListSearchView extends View {
 				String ST = scann.nextLine();
 				dataMap.put("ST", ST);
 				System.out.println("검색어를 업력하세요");
-				String KW = scann.nextLine();
+				String KW = scann.nextLine().toUpperCase();
 				dataMap.put("KW", KW);
 				menu = 1;
 				dataMap.put("menu", menu);
@@ -84,7 +85,7 @@ public class OrderListSearchView extends View {
 				ST = scann.nextLine();
 				dataMap.put("ST", ST);
 				System.out.println("검색어를 업력하세요");
-				KW = scann.nextLine();
+				KW = scann.nextLine().toUpperCase();
 				dataMap.put("KW", KW);
 				}else {
 					menu = 2;

@@ -8,7 +8,7 @@ import com.java.views.View;
 
 public class OrderRegistView extends View {
 	{
-		String menu = "***********주문서 등록************";
+		String menu = "===========================주문서 등록==========================";
 		setMenu(menu);
 	}
 	Scanner sc = new Scanner(System.in);
@@ -21,16 +21,16 @@ public class OrderRegistView extends View {
 		String menu1 = getMenu();
 		System.out.println(menu1);
 		System.out.print("입고 코드를 입력하세요: \n");
-		String Ocode = sc.nextLine();
+		String Ocode = sc.nextLine().toUpperCase();
 		System.out.print("식자재 코드를 입력하세요: \n");
-		String Fcode = sc.nextLine();
+		String Fcode = sc.nextLine().toUpperCase();
 		System.out.print("날짜를 입력하세요: \n");
 		String Odate = sc.nextLine();
 		System.out.print("수량을 입력하세요: \n");
 		int Oqty = sc.nextInt();
 		sc.nextLine();
 		System.out.print("창고번호를 입력하세요: \n");
-		String Snum = sc.nextLine();
+		String Snum = sc.nextLine().toUpperCase();
 		dataMap.put("Ocode", Ocode);
 		dataMap.put("Fcode", Fcode);
 		dataMap.put("Odate", Odate);
@@ -38,19 +38,46 @@ public class OrderRegistView extends View {
 		dataMap.put("Snum", Snum);
 
 		System.out.println("등록되었습니다");
-		System.out.print("다른 주문서 등록 [1] 이전화면 [2]");
-		int menu = sc.nextInt();
-		sc.nextLine();
-		if (menu == 1) {
-			flag = true;
-			dataMap.put("flag", flag);
-		} else {
-			flag = false;
-			dataMap.put("flag", flag);
-		}
+	      System.out.println("======================================================");
+	      System.out.println("=================창고에 등록하시겠습니까?===================");
+	      System.out.println("===================[Y/N]=================");
+	      
+	      String add = sc.nextLine().toUpperCase();
+	   
+	      if(add.equals("Y")) {
+	         flag = false;
+	         dataMap.put("flag", flag);
+	         System.out.println("식자재 번호를 입력하세요 :  ");
+	         dataMap.put("sd_num", sc.nextLine());
+	         System.out.println("섹션을 입력하세요 :   ");
+	         dataMap.put("section", sc.nextLine());
+	         System.out.println("적정재고를 입력하세요 : ");
+	         dataMap.put("sdstandard", sc.nextInt());
+	         
+	      }else
+	         flag = false;
+	         dataMap.put("flag", flag);
+	         
+	      
+	      
+	      
+	      ///////////////////////////////////////////
+	      System.out.print("다른 주문서 등록 [1] 이전화면 [2]");
+	      int menu = sc.nextInt();
+	      sc.nextLine();
+	      dataMap.put("menu", menu);
+	      switch(menu) {
+	      case 1: 
+	         break;
+	      case 2:
+	         flag = false;
+	         break;
+	      }
+	      dataMap.put("flag", flag);
+	      dataMap.put("menu", menu);
 
-		return dataMap;
+	      return dataMap;
+
+	   }
 
 	}
-
-}
