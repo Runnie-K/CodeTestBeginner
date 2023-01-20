@@ -13,15 +13,15 @@ import com.java.views.View;
 import com.java.views.order.OrderModifyView;
 
 public class OrderModifyController extends Controller {
-	private View view = new OrderModifyView();
-	private OrderService ODservice = new OrderServiceImpl();
-	Criteria cri = new Criteria();
-
+private View view = new OrderModifyView();
+private OrderService ODservice = new OrderServiceImpl();
+Criteria cri = new Criteria();	
+	
 	@Override
 	public Map<String, Object> execute(Map<String, Object> paramMap) {
 		boolean flag = true;
 		do {
-			Map<String, Object> dataMap = new HashMap<String, Object>();
+			Map<String,Object> dataMap = new HashMap<String,Object>();
 			cri.setKeyword("");
 			cri.setSearchType("");
 			try {
@@ -31,37 +31,44 @@ public class OrderModifyController extends Controller {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			Map<String, Object> paramData = view.view(dataMap);
-
+			Map<String,Object>paramData = view.view(dataMap);
+			
+		
 			String Ocode = (String) paramData.get("Ocode");
 			try {
 				OrderVO orderr = ODservice.getOrder(Ocode);
 				OrderVO Order = orderr;
-				String menu = (String) paramData.get("menu");
-				switch (menu) {
+				String menu = (String)paramData.get("menu");
+				switch(menu) {
 				case "F":
-					Order.setFcode((String) paramData.get("Fcode"));
-					ODservice.modify(Order);
-					break;
+				Order.setFcode((String)paramData.get("Fcode"));
+				ODservice.modify(Order);
+				break;
 				case "Q":
-					Order.setOqty((int) paramData.get("Oqty"));
+					Order.setOqty((int)paramData.get("Oqty"));
 					ODservice.modify(Order);
 					break;
 				case "S":
-					Order.setSnum((String) paramData.get("Snum"));
+					Order.setSnum((String)paramData.get("Snum"));
 					ODservice.modify(Order);
 					break;
 				}
-
+		
+				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-
-			flag = (Boolean) paramData.get("flag");
-
-		} while (flag != false);
-
+			
+	flag =(Boolean)paramData.get("flag");
+				
+		
+			
+			
+			
+		}while(flag!=false);
+		
+	
 		return null;
 	}
 
